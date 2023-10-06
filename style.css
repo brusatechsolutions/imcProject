@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --tt-heading: #0c3440;
+
+  --lb-input: #00453a;
+  --txt-input: #212529;
+  --bd-input: #02799d;
+  --bg-input: #dce2e9;
+
+  --tt-button: #fff;
+  --bg-button: #02799d;
+  --bg-button-hover: #09475a;
+
+  --bg-error: #f03e3e;
+  --tt-error: #fff;
+}
+
+body {
+  background: #040924;
+
+  font-family: "Roboto", sans-serif;
+}
+
+body,
+input,
+button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.card {
+  border-radius: 0.6rem;
+  background: #fff;
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.1);
+
+  width: min(42.8rem, 90%);
+
+  padding: 4.8rem 6.4rem 6.4rem;
+
+  margin-top: -5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+
+.title {
+  color: var(--tt-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 4rem; /* 125% */
+}
+
+label {
+  color: --lb-input;
+  font-size: 14px;
+  line-height: 1.8rem; /* 128.571% */
+}
+
+form {
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+form button {
+  margin-top: 3.2rem;
+  background: var(--bg-button);
+  border-radius: 0.4rem;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--tt-button);
+  padding: 1.6rem;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+
+  width: 100%;
+  cursor: pointer;
+
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: var(--bg-button-hover);
+}
+
+input {
+  padding: 1.6rem;
+
+  border-radius: 4px;
+  border: 1px solid --bd-input;
+  background: var(--bg-input);
+}
+
+#error-msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  background: var(--bg-error);
+  color: var(--tt-error);
+  padding-block: 0.8rem;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: transform .5s;
+
+  font-size: 1.6rem;
+  line-height: 20px; /* 125% */
+}
+
+#error-msg.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+  position: absolute;
+  right: 1.6rem;
+  top: 1.6rem;
+  background: none;
+  border: none;
+  transition: transform 0.3s;
+
+  cursor: pointer;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+}
